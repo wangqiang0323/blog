@@ -3,15 +3,18 @@ import { Component, OnInit, Output } from '@angular/core';
 import { GridOptions } from 'ag-grid/main';
 
 import { AgRendererComponent } from 'ag-grid-ng2/main';
+import { Overlay, overlayConfigFactory } from 'angular2-modal';
+import { Modal, BSModalContext } from 'angular2-modal/plugins/bootstrap';
 
 import { HeroService } from './hero.service';
 import { Hero } from './hero';
+import { NewPersonComponentContext, NewPersonComponent } from './new-person/new-person.component';
 
 @Component({
   selector: 'app-hero',
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.styl'],
-  providers: [HeroService]
+  providers: [HeroService,Modal]
 })
 export class HeroComponent implements OnInit {
   @Output() pagetitle: string
@@ -23,23 +26,28 @@ export class HeroComponent implements OnInit {
   private columnDefs: any[];
   private rowCount: string;
 
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService,public modal: Modal) { }
 
-  getHeroes(): void {
+  getHeroes(){
     this.heroService.getHeroes().then((heroes) => {
-      this.rowData = heroes;
+      this.rowData = heroes.sort((a,b): any => {
+        return a.id - b.id
+      });
+      setTimeout(() => {  
+          this.gridOptions.api.sizeColumnsToFit();
+        }, 0);
     });
   }
 
-  ngOnInit(): void {
+  ngOnInit(){
     this.gridOptions = <GridOptions>{
-      onGridReady: () => {
-        this.gridOptions.api.sizeColumnsToFit();
-      },
+      onGridReady: (params) => {
+        params.api.sizeColumnsToFit();
+      }
     };
+    this.getHeroes();
     this.createColumnDefs();
     this.showGrid = true;
-    this.getHeroes();
     this.pagetitle = 'hero';
   }
 
@@ -57,7 +65,7 @@ export class HeroComponent implements OnInit {
 
   private createColumnDefs(): void {
     this.columnDefs = [
-      { headerName: 'id', field: "id", cellClass: 'grid-align',  width: 100 },
+      { headerName: 'id', field: "id", cellClass: 'grid-align', width: 100 },
       { headerName: 'name', field: "name", cellClass: 'grid-align', width: 100 },
       {
         headerName: 'age', field: "age", cellClass: 'grid-align', width: 100,
@@ -74,9 +82,16 @@ export class HeroComponent implements OnInit {
           component: SquareComponent,
         },
         // specify all the other fields as normal
-        editable: false, cellStyle: { 'border': 'none' }, cellClass: 'grid-align', colId: "square",width:50
+        editable: false, cellStyle: { 'border': 'none' }, cellClass: 'grid-align', colId: "square", width: 50
       }
-    ]
+    ];
+  }
+
+  openCustom() {
+    return this.modal.open(NewPersonComponent,  overlayConfigFactory({ num1: 2, num2: 3 }, BSModalContext)).then(dialog => dialog.result).then(result => {
+      console.log(result);
+      this.getHeroes();
+    });
   }
 
 }
@@ -106,7 +121,9 @@ class SquareComponent implements AgRendererComponent {
     this.heroService.delete(this.params.value).then(() => {
       return this.heroService.getHeroes();
     }).then((heroes) => {
-      this.params.api.setRowData(heroes);
+      this.params.api.setRowData(heroes.sort((a,b): any => {
+        return a.id - b.id
+      }));
     });
   }
 

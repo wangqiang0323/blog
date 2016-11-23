@@ -1,15 +1,8 @@
-<app-search-bar pagetitle = "{{pagetitle}}" (search) = "search($event)"></app-search-bar>
-<ag-grid-ng2 #agGrid style="width: 100%; height: 350px;" class="ag-bootstrap table-bordered"
-
-                     [gridOptions]="gridOptions"
-                     [columnDefs]="columnDefs"
-                     [rowData]="rowData"
-
-                     enableColResize
-                     groupHeaders
-                     suppressRowClickSelection
-                     rowHeight="35"
-                     headerHeight="35"
-                     rowSelection="multiple"
-                     >
-        </ag-grid-ng2>
+<app-search-bar pagetitle="{{pagetitle}}" (search)="search($event)"></app-search-bar>
+<p>
+  <button type="button" class="btn btn-warning" (click) = "openCustom()">新增人员</button>
+</p>
+<ag-grid-ng2 #agGrid class="ag-bootstrap table-bordered table-hero" [gridOptions]="gridOptions"
+  [columnDefs]="columnDefs" [rowData]="rowData" enableColResize groupHeaders suppressRowClickSelection debug rowHeight="35"
+  headerHeight="35" rowSelection="multiple">
+</ag-grid-ng2>
