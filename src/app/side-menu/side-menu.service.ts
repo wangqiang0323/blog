@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Headers, Http, Response } from '@angular/http';
 
 import { SideMenu } from './side-menu'
 
@@ -8,7 +8,8 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class SideMenuService {
-    private sidemenuUrl = 'app/side-menu/side-menu.config.json';
+    private sidemenuUrl = 'app/menus';
+    private headers = new Headers({ 'Content-Type': 'application/json' });
 
     constructor(private http: Http) { }
 

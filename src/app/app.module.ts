@@ -8,12 +8,18 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
 import { OnsenModule } from 'angular2-onsenui';
+import { SelectModule } from 'ng2-select';
+import {AgGridModule} from 'ag-grid-ng2/main';
+
+import { InMemoryWebApiModule }   from 'angular-in-memory-web-api';
+import { InMemoryDataService }    from './in-memory-data.service'
 
 import { ROUTES } from './app.routes';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { AboutComponent } from './about/about.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { HeroComponent } from './hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +28,17 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     ScheduleComponent,
     AboutComponent,
     SideMenuComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    HeroComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     OnsenModule,
+    SelectModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    AgGridModule.withNg2ComponentSupport(),
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
   providers: [],
