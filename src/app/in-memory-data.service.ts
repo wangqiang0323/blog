@@ -31,14 +31,12 @@ export class InMemoryDataService implements InMemoryDbService {
                 "childmenu": [
                     { "icon": "fa-circle-o", "name": "schedule", "link": "./schedule" },
                     { "icon": "fa-circle-o", "name": "home", "link": "./home" },
-                    { "icon": "fa-circle-o", "name": "onsen", "link": "./onsen" },
                     { "icon": "fa-circle-o", "name": "hero", "link": "./hero" }
                 ]
             },
             {
                 "icon": "fa-hand-paper-o", "name": "权限管理",
                 "childmenu": [
-                    { "icon": "fa-circle-o", "name": "onsen", "link": "./onsen" },
                     { "icon": "fa-circle-o", "name": "home", "link": "./home" }
                 ]
             },
