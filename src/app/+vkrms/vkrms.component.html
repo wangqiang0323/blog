@@ -1,0 +1,27 @@
+<nav class="navbar navbar-light bg-faded vk-navbar navbar-fixed-top">
+  <a class="navbar-brand" href="#">
+    <img src="assets/image/logo.png" alt="">
+  </a>
+  <ul class="nav navbar-nav float-xs-right vk-navbar-logout">
+    <li class="nav-item">
+      <span class="nav-link" href="#"><i class="fa fa-user fa-1x" aria-hidden="true"> </i> Johnson <span class="sr-only">(current)</span></span>
+    </li>
+    <li class="nav-item">
+      <span class="nav-link" href="#"><i class="fa fa-mobile fa-1x" aria-hidden="true"> </i> 13825219593</span>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#"><i class="fa fa-sign-out fa-1x" aria-hidden="true"> </i> 退出</a>
+    </li>
+  </ul>
+</nav>
+<div class="container-fluid vk-main">
+  <div class="vk-menu">
+    <app-side-menu></app-side-menu>
+  </div>
+  <div class="vk-body">
+    <div class="vk-body-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+

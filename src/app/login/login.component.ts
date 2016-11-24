@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
 
   }
 
-  goHome(){
-    this.router.navigate(['home'])
+  goto(params){
+    this.router.navigate([params])
   }
 
 }
