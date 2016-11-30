@@ -1,17 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 
 @Component({
   selector: 'app-vkrms',
   templateUrl: './vkrms.component.html',
-  styleUrls: ['./vkrms.component.styl'],
-  providers: [RouterModule]
+  styleUrls: ['./vkrms.component.styl']
 })
 export class VkrmsComponent implements OnInit {
+  name: string
+  tel: string
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute,private router: Router) {}
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(params => {
+       this.name = params['name']; 
+       this.tel = params['tel']
+    });
+  }
+
+  logout(){
+    this.router.navigate(['']);
   }
 
 }

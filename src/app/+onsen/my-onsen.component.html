@@ -1,8 +1,61 @@
-<h1>Hello from Detail</h1>
-<li>
-  <a [routerLink]=" ['./type'] ">
-          Index
+<ons-page>
+  <ons-toolbar>
+    <div class="left">
+      <ons-back-button>Back</ons-back-button>
+    </div>
+    <div class="center">Title</div>
+    <div class="right">
+      <ons-toolbar-button>
+        <ons-icon icon="md-menu"></ons-icon>
+      </ons-toolbar-button>
+    </div>
+  </ons-toolbar>
+  <div class="background"></div>
+  <div class="content">
+    <div class="text-center">
+      <form>
+        <p></p>
+        <p>
+          <ons-input type="text" placeholder="Username" float></ons-input>
+        </p>
+        <p>
+          <ons-input type="password" placeholder="Password" float></ons-input>
+        </p>
+        <p>
+          <ons-button (click)="onClick">Sign in</ons-button>
+        </p>
+      </form>
+    </div>
+    <ons-list>
+      <ons-list-header>Header</ons-list-header>
+      <ons-list-item>
+        <div class="left">
+          <ons-icon icon="md-face" class="list__item__icon"></ons-icon>
+        </div>
+        <div class="center">
+          <span class="list__item__title">Title</span>
+          <span class="list__item__subtitle">Subtitle</span>
+        </div>
+        <label class="right">
+          <ons-switch></ons-switch>
+        </label>
+      </ons-list-item>
+    </ons-list>
+    <li>
+      <a [routerLink]=" ['./type'] ">
+          type
         </a>
-</li>
-<router-outlet></router-outlet>
-
+    </li>
+    <li>
+      <a [routerLink]=" ['./home'] ">
+          home
+        </a>
+    </li>
+    <li>
+      <a [routerLink]=" ['./blog'] ">
+          blog
+        </a>
+    </li>
+    <router-outlet></router-outlet>
+  </div>
+</ons-page>
