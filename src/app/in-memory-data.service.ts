@@ -31,7 +31,8 @@ export class InMemoryDataService implements InMemoryDbService {
                 "childmenu": [
                     { "icon": "fa-circle-o", "name": "schedule", "link": "./schedule" },
                     { "icon": "fa-circle-o", "name": "home", "link": "./home" },
-                    { "icon": "fa-circle-o", "name": "hero", "link": "./hero" }
+                    { "icon": "fa-circle-o", "name": "hero", "link": "./hero" },
+                    { "icon": "fa-circle-o", "name": "chart", "link": "./chart" }
                 ]
             },
             {

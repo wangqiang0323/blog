@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,13 +6,10 @@ import { Component, OnInit, Output } from '@angular/core';
   styleUrls: ['./home.component.styl']
 })
 export class HomeComponent implements OnInit {
-  @Output() pagetitle: String;
 
   constructor() { }
 
   ngOnInit() {
-    this.pagetitle = 'home'
-    
   }
 
 }
