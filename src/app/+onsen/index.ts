@@ -4,21 +4,26 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { MyOnsenComponent } from './my-onsen.component';
-import { TypeComponent } from './type';
-import { HomeComponent } from './home/home.component';
-import { BlogComponent } from './blog/blog.component';
+import { TypeComponent } from './page/type';
+import { HomeComponent } from './page/home';
+import { BlogComponent } from './page/blog';
+import { LoginComponent } from './page/login';
 
 console.log('`Detail` bundle loaded asynchronously');
 // async components must be named routes for WebpackAsyncRoute
 export const routes = [
   {
-    path: '', component: MyOnsenComponent,children: [
-      { path: '', redirectTo: 'type' },
-      { path: 'type', component: TypeComponent },
-      { path: 'home',component: HomeComponent,}
+    path: '', component: MyOnsenComponent, children: [
+      { path: '', redirectTo: 'login' },
+      { path: 'login', component: LoginComponent, }
     ]
   },
-  { path: 'blog',component: BlogComponent,}
+  {
+    path: 'type', component: TypeComponent
+  },
+  { path: 'login', component: LoginComponent, },
+  { path: 'home', component: HomeComponent, },
+  { path: 'blog', component: BlogComponent, }
 ];
 
 @NgModule({
@@ -27,15 +32,16 @@ export const routes = [
     MyOnsenComponent,
     TypeComponent,
     HomeComponent,
-    BlogComponent
+    BlogComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule.forChild(routes),
   ],
-  bootstrap: [MyOnsenComponent],
-  entryComponents: [MyOnsenComponent],
+  bootstrap: [],
+  entryComponents: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export default class MyOnsenModule {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AfterViewInit,onsNotification,onsPlatform } from 'angular2-onsenui'
+import { Router } from '@angular/router'
+import { AfterViewInit,onsNotification,onsPlatform } from 'angular2-onsenui';
+import { OnsenSetting } from '../../onsen-setting.component';
 
 @Component({
   selector: 'app-blog',
@@ -8,14 +10,18 @@ import { AfterViewInit,onsNotification,onsPlatform } from 'angular2-onsenui'
 })
 export class BlogComponent implements OnInit,AfterViewInit  {
 
-  constructor() { }
+  constructor(public router:Router) { }
 
   ngOnInit() {
   }
 
   ngAfterViewInit() {
     // this._navigator.element.pushPage(componentPage, { animation: 'fade' });
-    onsNotification.alert('Hello World');
+    // onsNotification.alert('Hello World');
+  }
+
+  back() {
+    this.router.navigate([[OnsenSetting.base+'blog']])
   }
 
 }
