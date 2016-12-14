@@ -1,5 +1,5 @@
 <span defaultOverlayTarget></span>
-<app-search-bar pagetitle="{{pagetitle}}" (search)="search($event)"></app-search-bar>
+<app-search-bar [option]="CustomOption" (search)="search($event)"></app-search-bar>
 <p>
   <button type="button" class="btn btn-warning" (click) = "openCustom()">新增人员</button>
 </p>

@@ -1,4 +1,4 @@
-<app-search-bar pagetitle = "{{pagetitle}}" (search) = "search()"></app-search-bar>
+<app-search-bar [option] = "CustomOption" (search) = "search()"></app-search-bar>
 <ag-grid-ng2 #agGrid style="width: 100%; height: 350px;" class="ag-bootstrap table-bordered"
 
                      [gridOptions]="gridOptions"

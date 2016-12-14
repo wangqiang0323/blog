@@ -8,7 +8,7 @@ import RefData from './refData';
   styleUrls: ['./schedule.component.styl']
 })
 export class ScheduleComponent implements OnInit {
-  @Output() pagetitle: string;
+  @Output() CustomOption
 
   private gridOptions: GridOptions;
   private showGrid: boolean;
@@ -24,12 +24,12 @@ export class ScheduleComponent implements OnInit {
     this.showGrid = true;
     this.gridOptions = {
       onGridReady: () => {
-        this.gridOptions.api.sizeColumnsToFit();
+        // this.gridOptions.api.sizeColumnsToFit();
       }
     }
   }
 
-  public search(): void{
+  public search(): void {
     console.log('search');
   }
 
@@ -61,18 +61,18 @@ export class ScheduleComponent implements OnInit {
         children: [
           {
             headerName: "Name", field: "name",
-            width: 150, pinned: true, editable: true
+            width: 250, pinned: true, editable: true
           },
           {
-            headerName: "Country", field: "country", width: 150, pinned: true
+            headerName: "Country", field: "country", width: 250, pinned: true
           },
         ]
       },
       {
         headerName: 'Contact',
         children: [
-          { headerName: "Mobile", field: "mobile", width: 150, filter: 'text' },
-          { headerName: "Land-line", field: "landline", width: 150, filter: 'text' },
+          { headerName: "Mobile", field: "mobile", width: 250, filter: 'text' },
+          { headerName: "Land-line", field: "landline", width: 250, filter: 'text' },
           { headerName: "Address", field: "address", width: 600, filter: 'text' }
         ]
       }
@@ -80,7 +80,12 @@ export class ScheduleComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.pagetitle = "schedule";
+    this.CustomOption = {
+      "pagetitle": "schedule",
+      "subtitle": "https://www.ag-grid.com/example.php",
+      "multiple": false
+    }
+
   }
 
   createRandomPhoneNumber(): String {

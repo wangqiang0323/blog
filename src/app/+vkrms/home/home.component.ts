@@ -6,13 +6,15 @@ import { Component, OnInit, Output } from '@angular/core';
   styleUrls: ['./home.component.styl']
 })
 export class HomeComponent implements OnInit {
-  @Output() pagetitle: String;
+  @Output() CustomOption: {};
 
   constructor() { }
 
   ngOnInit() {
-    this.pagetitle = 'home'
-    
+    this.CustomOption = {
+      pagetitle: 'home',
+      multiple: true
+    }
   }
 
 }

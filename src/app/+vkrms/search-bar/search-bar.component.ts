@@ -6,7 +6,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./search-bar.component.styl']
 })
 export class SearchBarComponent implements OnInit {
-  @Input() pagetitle: String;
+  @Input() option
   @Output() search: EventEmitter<any> = new EventEmitter();
   id: string = '';
   name: string= '';
@@ -14,6 +14,11 @@ export class SearchBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.option = Object.assign({
+      multiple: false
+    },this.option);
+
+    console.log(this.option);
   }
 
   onSearch(){
