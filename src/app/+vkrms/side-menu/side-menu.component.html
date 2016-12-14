@@ -1,0 +1,24 @@
+<div id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="card" *ngFor="let menu of menus;let idx = index;">
+    <div class="card-header" role="tab" id="headingOne">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{idx}}" aria-expanded="true" aria-controls="">
+          <i class="fa fa-fw {{menu.icon}}"></i> {{menu.name}}
+        </a>
+      </h5>
+    </div>
+    <div id="collapse{{idx}}" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="card-block">
+        <ul>
+          <li *ngFor="let childmenu of menu.childmenu;let idx = index;" 
+              (click) = "toggleActive(childmenu);childmenu.activeStatus = !childmenu.activeStatus" 
+              [class.active] = "childmenu.activeStatus"
+              routerLink="{{childmenu.link}}">
+            <i class="fa {{childmenu.icon}} fa-fw"></i>
+            <a>{{childmenu.name}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

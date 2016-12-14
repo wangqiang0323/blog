@@ -1,0 +1,21 @@
+<ons-page>
+  <ons-toolbar>
+        <div class="center">Log In</div>
+        <div class="right"><ons-toolbar-button>Close</ons-toolbar-button></div>
+      </ons-toolbar>
+  <div class="login-form">
+          <ons-input type="text" class="text-input--underbar" placeholder="Username" float [(value)]="username" required (input)="username = $event.target.value"></ons-input>
+          <!--<div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+            username is required
+          </div>-->
+          <br>
+          <br>
+          <ons-input type="password" class="text-input--underbar" placeholder="Password" float [(value)]="password" required (input)="password = $event.target.value"></ons-input>
+          <!--<div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+            password is required
+          </div>-->
+          <br><br>
+          <ons-button (click)="onClick(button)" #button modifier="large">Sign in</ons-button>
+          <ons-button modifier="quiet" class="forgot-password">Forgot password?</ons-button>
+  </div>
+</ons-page>

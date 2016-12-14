@@ -1,0 +1,15 @@
+<app-search-bar [option] = "CustomOption" (search) = "search()"></app-search-bar>
+<ag-grid-ng2 #agGrid style="width: 100%; height: 350px;" class="ag-bootstrap table-bordered"
+
+                     [gridOptions]="gridOptions"
+                     [columnDefs]="columnDefs"
+                     [rowData]="rowData"
+
+                     enableColResize
+                     groupHeaders
+                     suppressRowClickSelection
+
+                     rowHeight="30"
+                     rowSelection="multiple"
+                     >
+        </ag-grid-ng2>
