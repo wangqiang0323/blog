@@ -5,7 +5,7 @@
   },
   "apps": [{
     "root": "src",
-    "outDir": "../angular-blog-tomcat/web/dist",
+    "outDir": "./",
     "assets": [
       "assets",
       "favicon.ico"
