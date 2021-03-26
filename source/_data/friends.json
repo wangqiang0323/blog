@@ -1,16 +1,16 @@
 [
   {
     "avatar": "https://www.lixl.cn/medias/avatar.jpg",
-    "name": "悟尘记",
-    "introduction": "人生就是一场修行，上善若水，厚德载物。",
-    "url": "https://www.lixl.cn/",
+    "name": "日常小记",
+    "introduction": "山重水复疑无路， 柳暗花明又一村。",
+    "url": "https://wangqiang0323.github.io/blog/",
     "title": "前去参观"
   },
   {
     "avatar": "https://wiki.hyperledger.org/download/attachments/2392069/fabric?version=1&modificationDate=1540928132000&api=v2",
-    "name": "Fabric",
-    "introduction": "A Blockchain Platform for the Enterprise",
-    "url": "https://hyperledger-fabric.readthedocs.io/en/master/",
+    "name": "uni-app",
+    "introduction": "开发一次，多端覆盖，简单易用",
+    "url": "https://www.dcloud.io/",
     "title": "前去学习"
   },
   {
