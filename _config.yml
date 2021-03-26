@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 博客
-subtitle: ''
+title: Johnson
+subtitle: 日常小记
 description: ''
 keywords:
 author: Johnson
@@ -14,7 +14,10 @@ timezone: ''
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: http://wangqiang431.gitee.io/blog/
-permalink: :year/:month/:day/:title/
+permalink: :year/:month:day:abbrlink.html
+abbrlink:
+  alg: crc16 #算法选项：crc16丨crc32
+  rep: dec #输出进制：dec为十进制，hex为十六进制
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -57,7 +60,7 @@ prismjs:
   tab_replace: ''
 postInfo:
   date: true
-  update: false
+  update: true
   wordCount: true # set true.
   totalCount: true # set true.
   min2read: true # set true.
@@ -109,4 +112,21 @@ theme: hexo-theme-matery
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git,
+  repo: git@gitee.com:wangqiang431/blog.git,
+  branch: master,
+  message:
+
+search:
+  path: search.xml
+  field: post
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: " "
+  order_by: -date
