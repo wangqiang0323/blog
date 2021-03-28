@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wangqiang431.gitee.io/blog/2021/03183927.html</loc>
+    
+    <lastmod>2021-03-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangqiang431.gitee.io/blog/2021/03287415.html</loc>
+    
+    <lastmod>2021-03-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangqiang431.gitee.io/blog/2021/031848462.html</loc>
+    
+    <lastmod>2021-03-28</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wangqiang431.gitee.io/blog/2021/032863421.html</loc>
     
     <lastmod>2021-03-28</lastmod>
@@ -10,13 +31,6 @@
   
   <url>
     <loc>http://wangqiang431.gitee.io/blog/2021/031651881.html</loc>
-    
-    <lastmod>2021-03-26</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wangqiang431.gitee.io/blog/2021/031848462.html</loc>
     
     <lastmod>2021-03-26</lastmod>
     
@@ -52,13 +66,6 @@
   
   <url>
     <loc>http://wangqiang431.gitee.io/blog/2021/031756648.html</loc>
-    
-    <lastmod>2021-03-26</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wangqiang431.gitee.io/blog/2021/03183927.html</loc>
     
     <lastmod>2021-03-26</lastmod>
     
@@ -130,13 +137,6 @@
 
   
   <url>
-    <loc>http://wangqiang431.gitee.io/blog/tags/%E8%BF%9B%E9%98%B6/</loc>
-    <lastmod>2021-03-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://wangqiang431.gitee.io/blog/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</loc>
     <lastmod>2021-03-28</lastmod>
     <changefreq>daily</changefreq>
@@ -166,6 +166,13 @@
   
   <url>
     <loc>http://wangqiang431.gitee.io/blog/tags/%E4%BC%98%E5%8C%96/</loc>
+    <lastmod>2021-03-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wangqiang431.gitee.io/blog/tags/%E8%BF%9B%E9%98%B6/</loc>
     <lastmod>2021-03-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -223,13 +230,6 @@
 
   
   <url>
-    <loc>http://wangqiang431.gitee.io/blog/categories/React/</loc>
-    <lastmod>2021-03-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://wangqiang431.gitee.io/blog/categories/React-Native/</loc>
     <lastmod>2021-03-28</lastmod>
     <changefreq>daily</changefreq>
@@ -244,6 +244,13 @@
   </url>
   
   <url>
+    <loc>http://wangqiang431.gitee.io/blog/categories/React/</loc>
+    <lastmod>2021-03-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://wangqiang431.gitee.io/blog/categories/Vue/</loc>
     <lastmod>2021-03-28</lastmod>
     <changefreq>daily</changefreq>
@@ -252,6 +259,13 @@
   
   <url>
     <loc>http://wangqiang431.gitee.io/blog/categories/%E6%97%A5%E8%AE%B0/</loc>
+    <lastmod>2021-03-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wangqiang431.gitee.io/blog/categories/JavaScript/</loc>
     <lastmod>2021-03-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

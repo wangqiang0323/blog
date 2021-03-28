@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="强制缓存和协商缓存, Johnson">
+    <meta name="keywords" content="闭包, Johnson">
     <meta name="description" content="莫道浮云终蔽日，严冬过尽春蓓蕾">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>强制缓存和协商缓存 | Johnson</title>
+    <title>闭包 | Johnson</title>
     <link rel="icon" type="image/png" href="/blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">强制缓存和协商缓存</h1>
+                    <h1 class="description center-align post-title">闭包</h1>
                 </div>
             </div>
         </div>
@@ -436,10 +436,6 @@
                                 <span class="chip bg-color">基础</span>
                             </a>
                         
-                            <a href="/blog/tags/http/">
-                                <span class="chip bg-color">http</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -448,8 +444,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/blog/categories/Javascript/" class="post-category">
-                                Javascript
+                            <a href="/blog/categories/JavaScript/" class="post-category">
+                                JavaScript
                             </a>
                         
                     </div>
@@ -461,28 +457,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-17
+                    2021-03-28
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-26
+                    2021-03-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    506
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -500,30 +496,79 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="强制缓存和协商缓存"><a href="#强制缓存和协商缓存" class="headerlink" title="强制缓存和协商缓存"></a>强制缓存和协商缓存</h1><p>首先，缓存规则是由服务器返回给客户端的，包含在响应header中。</p>
-<h2 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h2><p>对于强制缓存，有两个字段标识失效规则（Expires/Cache-Control）。</p>
-<h3 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h3><p>Cache-Control 是最重要的规则。常见的取值有private、public、no-cache、max-age，no-store，默认为private。</p>
+                <h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><h3 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h3><p>变量作用域两种：全局变量、局部变量。</p>
 <ul>
-<li>private:             客户端可以缓存</li>
-<li>public:              客户端和代理服务器都可缓存（前端的同学，可以认为public和private是一样的）</li>
-<li>max-age=xxx:   缓存的内容将在 xxx 秒后失效</li>
-<li>no-cache:          需要使用对比缓存来验证缓存数据（后面介绍）</li>
-<li>no-store:           所有内容都不会缓存，强制缓存，对比缓存都不会触发（对于前端开发来说，缓存越多越好，so…基本上和它说886）</li>
+<li>全局变量：函数外声明的变量，称为全局变量</li>
+<li> 局部变量：函数内部使用var声明的变量，称为局部变量</li>
 </ul>
-<p>强制缓存：即客户端现访问浏览器缓存，</p>
-<h2 id="对比缓存-协商缓存"><a href="#对比缓存-协商缓存" class="headerlink" title="对比缓存 / 协商缓存"></a>对比缓存 / 协商缓存</h2><p>对比缓存，顾名思义，需要进行比较判断是否可以使用缓存。<br>浏览器第一次请求数据时，服务器会将缓存标识与数据一起返回给客户端，客户端将二者备份至缓存数据库中。<br>再次请求数据时，客户端将备份的缓存标识发送给服务器，服务器根据缓存标识进行判断，判断成功后，返回304状态码，通知客户端比较成功，可以使用缓存数据。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li>对于强制缓存，服务器通知浏览器一个缓存时间，在缓存时间内，下次请求，直接用缓存，不在时间内，执行比较缓存策略。</li>
-<li>对于比较缓存，将缓存信息中的Etag和Last-Modified通过请求发送给服务器，由服务器校验，返回304状态码时，浏览器直接使用缓存。</li>
+<p>在JS中（ES5），只有函数作用域，没有块级作用域！！！也就是说，if/for等有{}的结构体，并不能具备自己的作用域。（ES6提供了块级作用域，let、const）</p>
+<p>所以，函数外部不能访问函数内部局部变量（私有属性）。因为，函数内部的变量，在函数执行完毕以后，就会被释放掉。（涉及js垃圾回收机制）</p>
+<h3 id="如何从外部读取函数内部的变量？"><a href="#如何从外部读取函数内部的变量？" class="headerlink" title="如何从外部读取函数内部的变量？"></a>如何从外部读取函数内部的变量？</h3><pre class="line-numbers language-none"><code class="language-none">function func1()&#123;
+	var a &#x3D; 12
+	function func2()&#123;    &#x2F;&#x2F; func2是一个闭包
+		alert(a)
+	&#125;
+	return func2
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>js链式作用域：子对象会一级一级向上寻找所有父对象的变量，反之不行。</li>
+<li>func2可以读取func1内的变量，只要将func2作为返回值，就可以在func1外部读取func1内部变量</li>
 </ul>
-<h2 id="思考：当发版时，如何解决浏览器缓存，保证用户看到新的页面？"><a href="#思考：当发版时，如何解决浏览器缓存，保证用户看到新的页面？" class="headerlink" title="思考：当发版时，如何解决浏览器缓存，保证用户看到新的页面？"></a>思考：当发版时，如何解决浏览器缓存，保证用户看到新的页面？</h2><ul>
-<li>hash</li>
-<li>时间戳</li>
-<li>版本号</li>
-</ul>
+<h3 id="闭包的概念"><a href="#闭包的概念" class="headerlink" title="闭包的概念"></a>闭包的概念</h3><p>  能够读取其他函数内部变量的函数；<br>  或简单理解为定义在一个函数内部的函数，内部函数持有外部函数内变量的引用。</p>
+<h3 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途"></a>闭包的用途</h3><ul>
+<li><p>读取函数内部的变量</p>
+</li>
+<li><p>让这些变量的值始终保持在内存中。不会在func1调用后被自动清除。<br>func1是func2的父函数，func2被赋给了一个全局变量。因此，func2始终存在内存中，func2的存在依赖func1，因此func1也始终存在内存中，不会在调用结束后，被垃圾回收机制回收。</p>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/chenqf/p/6386163.html">彻底弄懂HTTP缓存机制及原理</a></p>
+<p>垃圾回收机制：（js内存管理的主要概念-可达性）<br>1、可达性即那些以某种方式可访问或可用的值，它们被保证存储在内存中。<br>2、一般来说没有被引用的对象就是垃圾，就是要被清除。 有个例外如果几个对象引用形成一个环，互相引用，但“根”访问不到它们，这几个对象也是垃圾，也要被清除。即可达性，</p>
 </blockquote>
+</li>
+<li><p>方便调用上下文的局部变量。利于代码封装。</p>
+</li>
+</ul>
+<h3 id="闭包的理解"><a href="#闭包的理解" class="headerlink" title="闭包的理解"></a>闭包的理解</h3><pre class="line-numbers language-none"><code class="language-none">function init() &#123;
+	var name &#x3D; &quot;Chrome&quot;;    &#x2F;&#x2F;创建局部变量name和局部函数alertName
+
+	function alertName() &#123; &#x2F;&#x2F;alertName()是函数内部方法，是一个闭包
+			alert(name); &#x2F;&#x2F;使用了外部函数声明的变量，内部函数可以访问外部函数的变量
+	&#125;
+	alertName();
+&#125;
+init();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>词法作用域中使用的域，是变量在代码中声明的位置所决定的（全局，函数，块级）。嵌套的函数可以访问在其外部声明的变量。</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">function outFun()&#123;
+		var name &#x3D; &quot;Chrome&quot;;
+		function alertName()&#123;
+				alert(name);
+		&#125;
+		return alertName;   &#x2F;&#x2F;alertName被外部函数作为返回值返回了,返回的是一个闭包
+&#125;
+
+var myFun &#x3D; outFun();
+myFun();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>闭包有函数+它的词法环境；词法环境指函数创建时可访问的所有变量。</li>
+<li>myFun引用了一个闭包，闭包由alertName()和闭包创建时存在的“Chrome”字符串组成。alertName()持有了name的引用，myFun持有了alertName()的访问，因此myFun调用时，name还是处于可以访问的状态。</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">function makeAdder(x)&#123;
+		return function(y)&#123;
+				return x + y;
+		&#125;;
+&#125;
+
+var add5&#x3D; makeAdder(5);
+var add10&#x3D; makeAdder(10);
+
+console.log(add5(2)); &#x2F;&#x2F; 7
+console.log(add10(2));  &#x2F;&#x2F; 12<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>在这个示例中，我们定义了 makeAdder(x) 函数，它接受一个参数 x ，并返回一个新的函数。返回的函数接受一个参数 y，并返回x+y的值。</li>
+<li>从本质上讲，makeAdder 是一个函数工厂 — 他创建了将指定的值和它的参数相加求和的函数。在上面的示例中，我们使用函数工厂创建了两个新函数 — 一个将其参数和 5 求和，另一个和 10 求和。</li>
+<li>add5和add10都是闭包。它们共享相同的函数定义，但是保存了不同的词法环境。在 add5 的环境中，x 为 5。而在 add10 中，x 则为 10。</li>
+</ul>
+<h3 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h3><p><a href="%5Bhttps://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures%5D(https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures)">MDN</a><br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000018605776">前端面试：谈谈 JS 垃圾回收机制</a><br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000010640225">ES6 变量作用域与提升：变量的生命周期详解</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/2fb8a9f26589">关于JavaScript中的闭包及应用场景</a></p>
 
                 
             </div>
@@ -550,7 +595,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://wangqiang431.gitee.io/blog/blog/2021/031756648.html">http://wangqiang431.gitee.io/blog/blog/2021/031756648.html</a>
+                    <a href="http://wangqiang431.gitee.io/blog/blog/2021/03287415.html">http://wangqiang431.gitee.io/blog/blog/2021/03287415.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -590,10 +635,6 @@
                             
                                 <a href="/blog/tags/%E5%9F%BA%E7%A1%80/">
                                     <span class="chip bg-color">基础</span>
-                                </a>
-                            
-                                <a href="/blog/tags/http/">
-                                    <span class="chip bg-color">http</span>
                                 </a>
                             
                         </div>
@@ -765,50 +806,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/blog/2021/03183927.html">
+                <a href="/blog/2021/03287415.html">
                     <div class="card-image">
                         
                         
-                        <img src="/blog/medias/featureimages/8.jpg" class="responsive-img" alt="javascript面试题">
+                        <img src="/blog/medias/featureimages/0.jpg" class="responsive-img" alt="闭包">
                         
-                        <span class="card-title">javascript面试题</span>
+                        <span class="card-title">闭包</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            面试题
+                            js很重要的一个概念
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/blog/categories/Javascript/" class="post-category">
-                                    Javascript
+                            <a href="/blog/categories/JavaScript/" class="post-category">
+                                    JavaScript
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/blog/tags/%E5%9F%BA%E7%A1%80/">
                         <span class="chip bg-color">基础</span>
-                    </a>
-                    
-                    <a href="/blog/tags/%E9%9D%A2%E8%AF%95/">
-                        <span class="chip bg-color">面试</span>
                     </a>
                     
                 </div>
@@ -822,31 +861,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blog/2021/031656855.html">
+                <a href="/blog/2021/032863421.html">
                     <div class="card-image">
                         
                         
-                        <img src="/blog/medias/featureimages/2.jpg" class="responsive-img" alt="React与Vue比较">
+                        <img src="/blog/medias/featureimages/3.jpg" class="responsive-img" alt="日记">
                         
-                        <span class="card-title">React与Vue比较</span>
+                        <span class="card-title">日记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前端框架比较
+                            有东西被加密了, 请输入密码查看.
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/blog/categories/React/" class="post-category">
-                                    React
+                            <a href="/blog/categories/%E6%97%A5%E8%AE%B0/" class="post-category">
+                                    日记
                                 </a>
                             
                             
@@ -856,8 +895,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blog/tags/%E8%BF%9B%E9%98%B6/">
-                        <span class="chip bg-color">进阶</span>
+                    <a href="/blog/tags/%E6%97%A5%E8%AE%B0/">
+                        <span class="chip bg-color">日记</span>
+                    </a>
+                    
+                    <a href="/blog/tags/%E5%91%A8%E8%AE%B0/">
+                        <span class="chip bg-color">周记</span>
                     </a>
                     
                 </div>
