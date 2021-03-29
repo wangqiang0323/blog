@@ -9,11 +9,11 @@ updated:
 tags:
   - 开发环境
   - 框架
-  - App
+  - APP
 categories: React Native
 abbrlink: 51881
 date: 2021-03-16 16:35:36
-password:
+password: 
 summary: 开发环境搭建
 ---
 # React Native搭建环境中遇到的问题
