@@ -475,7 +475,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    259
+                    311
                 </div>
                 
 
@@ -508,9 +508,14 @@
 <h3 id="7-混入的优缺点minix"><a href="#7-混入的优缺点minix" class="headerlink" title="7. 混入的优缺点minix"></a>7. 混入的优缺点minix</h3><h3 id="8-nextTick实现原理"><a href="#8-nextTick实现原理" class="headerlink" title="8. $nextTick实现原理"></a>8. $nextTick实现原理</h3><h3 id="9-vue3"><a href="#9-vue3" class="headerlink" title="9. vue3"></a>9. vue3</h3><h3 id="10-requestAnimationFrame"><a href="#10-requestAnimationFrame" class="headerlink" title="10. requestAnimationFrame"></a>10. requestAnimationFrame</h3><p>   <code>requestAnimationFrame</code> 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率</p>
 <p>   在隐藏或不可见的元素中，<code>requestAnimationFrame</code> 将不会进行重绘或回流，这当然就意味着更少的 CPU、GPU 和内存使用量</p>
 <p>   <code>requestAnimationFrame</code> 是由浏览器专门为动画提供的 API，在运行时浏览器会自动优化方法的调用，并且如果页面不是激活状态下的话，动画会自动暂停，有效节省了 CPU 开销</p>
-<h3 id="11-性能优化"><a href="#11-性能优化" class="headerlink" title="11. 性能优化"></a>11. 性能优化</h3><ul>
+<h3 id="11-性能优化"><a href="#11-性能优化" class="headerlink" title="11. 性能优化"></a>11. 性能优化</h3><h3 id="12-何时创建虚拟dom，又何时进行依赖收集？"><a href="#12-何时创建虚拟dom，又何时进行依赖收集？" class="headerlink" title="12. 何时创建虚拟dom，又何时进行依赖收集？"></a>12. 何时创建虚拟dom，又何时进行依赖收集？</h3><ul>
 <li>防抖和节流， </li>
 <li>requestAnimationFrame,</li>
+</ul>
+<h3 id="13-虚拟dom的优缺点？"><a href="#13-虚拟dom的优缺点？" class="headerlink" title="13. 虚拟dom的优缺点？"></a>13. 虚拟dom的优缺点？</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// TODO: 自己实现虚拟dom，创建，渲染流程</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>虚拟dom采用AST抽象语法树实现的</li>
 </ul>
 
                 
@@ -1056,7 +1061,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.8k</span>&nbsp;字
+                class="white-color">4.9k</span>&nbsp;字
             
             
             

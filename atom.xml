@@ -6,7 +6,7 @@
   <link href="http://wangqiang431.gitee.io/blog/atom.xml" rel="self"/>
   
   <link href="http://wangqiang431.gitee.io/blog/"/>
-  <updated>2021-03-28T08:21:47.430Z</updated>
+  <updated>2021-03-28T08:41:48.296Z</updated>
   <id>http://wangqiang431.gitee.io/blog/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>uni-app</title>
+    <link href="http://wangqiang431.gitee.io/blog/2021/032854796.html"/>
+    <id>http://wangqiang431.gitee.io/blog/2021/032854796.html</id>
+    <published>2021-03-28T08:38:13.000Z</published>
+    <updated>2021-03-28T08:41:48.296Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;uni-app&quot;&gt;&lt;a href=&quot;#uni-app&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Vue" scheme="http://wangqiang431.gitee.io/blog/categories/Vue/"/>
+    
+    
+    <category term="APP" scheme="http://wangqiang431.gitee.io/blog/tags/APP/"/>
+    
+    <category term="跨平台" scheme="http://wangqiang431.gitee.io/blog/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/"/>
+    
+    <category term="小程序" scheme="http://wangqiang431.gitee.io/blog/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+    <category term="h5" scheme="http://wangqiang431.gitee.io/blog/tags/h5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>闭包</title>
     <link href="http://wangqiang431.gitee.io/blog/2021/03287415.html"/>
     <id>http://wangqiang431.gitee.io/blog/2021/03287415.html</id>
     <published>2021-03-28T08:19:02.000Z</published>
-    <updated>2021-03-28T08:21:47.430Z</updated>
+    <updated>2021-03-29T02:22:12.886Z</updated>
     
     
       
@@ -34,7 +65,7 @@
     
     
     
-    <category term="JavaScript" scheme="http://wangqiang431.gitee.io/blog/categories/JavaScript/"/>
+    <category term="Javascript" scheme="http://wangqiang431.gitee.io/blog/categories/Javascript/"/>
     
     
     <category term="基础" scheme="http://wangqiang431.gitee.io/blog/tags/%E5%9F%BA%E7%A1%80/"/>
@@ -172,7 +203,7 @@
     <link href="http://wangqiang431.gitee.io/blog/2021/031848462.html"/>
     <id>http://wangqiang431.gitee.io/blog/2021/031848462.html</id>
     <published>2021-03-18T07:21:22.000Z</published>
-    <updated>2021-03-28T07:48:19.053Z</updated>
+    <updated>2021-03-28T08:35:48.724Z</updated>
     
     
       
@@ -254,7 +285,7 @@
     <link href="http://wangqiang431.gitee.io/blog/2021/031656855.html"/>
     <id>http://wangqiang431.gitee.io/blog/2021/031656855.html</id>
     <published>2021-03-16T09:49:14.000Z</published>
-    <updated>2021-03-26T06:10:27.527Z</updated>
+    <updated>2021-03-28T08:37:51.127Z</updated>
     
     
       
@@ -279,7 +310,7 @@
     <link href="http://wangqiang431.gitee.io/blog/2021/031651881.html"/>
     <id>http://wangqiang431.gitee.io/blog/2021/031651881.html</id>
     <published>2021-03-16T08:35:36.000Z</published>
-    <updated>2021-03-26T07:57:55.519Z</updated>
+    <updated>2021-03-28T08:40:54.538Z</updated>
     
     
       
@@ -299,7 +330,7 @@
     
     <category term="框架" scheme="http://wangqiang431.gitee.io/blog/tags/%E6%A1%86%E6%9E%B6/"/>
     
-    <category term="App" scheme="http://wangqiang431.gitee.io/blog/tags/App/"/>
+    <category term="APP" scheme="http://wangqiang431.gitee.io/blog/tags/APP/"/>
     
   </entry>
   
