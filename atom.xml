@@ -6,7 +6,7 @@
   <link href="http://wangqiang431.gitee.io/blog/atom.xml" rel="self"/>
   
   <link href="http://wangqiang431.gitee.io/blog/"/>
-  <updated>2021-03-29T03:55:33.500Z</updated>
+  <updated>2021-03-29T05:10:22.923Z</updated>
   <id>http://wangqiang431.gitee.io/blog/</id>
   
   <author>
@@ -17,11 +17,93 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>call、apply和bind</title>
+    <link href="http://wangqiang431.gitee.io/blog/2021/032953995.html"/>
+    <id>http://wangqiang431.gitee.io/blog/2021/032953995.html</id>
+    <published>2021-03-29T04:52:50.000Z</published>
+    <updated>2021-03-29T05:10:22.923Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;call、apply和bind&quot;&gt;&lt;a href=&quot;#call、apply和bind&quot; class=&quot;headerlink&quot; title=&quot;call、apply和bind&quot;&gt;&lt;/a&gt;call、apply和bind&lt;/h1&gt;&lt;h3 id=&quot;call&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Javascript" scheme="http://wangqiang431.gitee.io/blog/categories/Javascript/"/>
+    
+    
+    <category term="基础" scheme="http://wangqiang431.gitee.io/blog/tags/%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>变量提升</title>
+    <link href="http://wangqiang431.gitee.io/blog/2021/032930046.html"/>
+    <id>http://wangqiang431.gitee.io/blog/2021/032930046.html</id>
+    <published>2021-03-29T04:44:51.000Z</published>
+    <updated>2021-03-29T04:46:38.266Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;先了解一下变量的生命周期&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;变量在它声明时初始化。&lt;/li&gt;
+&lt;li&gt;局部变量在函数调用时创建，当函数执行完毕后销毁，这和为什么要使用闭包也有一点关系，当然这是另外的话题了。&lt;/li&gt;
+&lt;li&gt;全局变量在页面（当前页面）关闭后销毁。&lt;/li&gt;
+&lt;/u</summary>
+        
+      
+    
+    
+    
+    <category term="Javascript" scheme="http://wangqiang431.gitee.io/blog/categories/Javascript/"/>
+    
+    
+    <category term="深入" scheme="http://wangqiang431.gitee.io/blog/tags/%E6%B7%B1%E5%85%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微前端</title>
+    <link href="http://wangqiang431.gitee.io/blog/2021/032923388.html"/>
+    <id>http://wangqiang431.gitee.io/blog/2021/032923388.html</id>
+    <published>2021-03-29T03:56:50.000Z</published>
+    <updated>2021-03-29T04:50:46.549Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;微前端&quot;&gt;&lt;a href=&quot;#微前端&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="http://wangqiang431.gitee.io/blog/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="框架" scheme="http://wangqiang431.gitee.io/blog/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+    <category term="优化" scheme="http://wangqiang431.gitee.io/blog/tags/%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
     <title>git相关问题</title>
     <link href="http://wangqiang431.gitee.io/blog/2021/032960288.html"/>
     <id>http://wangqiang431.gitee.io/blog/2021/032960288.html</id>
     <published>2021-03-29T03:47:15.000Z</published>
-    <updated>2021-03-29T03:55:33.500Z</updated>
+    <updated>2021-03-29T04:03:34.488Z</updated>
     
     
       
@@ -38,6 +120,10 @@
     
     
     <category term="git" scheme="http://wangqiang431.gitee.io/blog/tags/git/"/>
+    
+    <category term="工具" scheme="http://wangqiang431.gitee.io/blog/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="版本管理" scheme="http://wangqiang431.gitee.io/blog/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
@@ -127,7 +213,7 @@
     <link href="http://wangqiang431.gitee.io/blog/2021/03287415.html"/>
     <id>http://wangqiang431.gitee.io/blog/2021/03287415.html</id>
     <published>2021-03-28T08:19:02.000Z</published>
-    <updated>2021-03-29T02:41:54.419Z</updated>
+    <updated>2021-03-29T07:39:03.452Z</updated>
     
     
       
@@ -144,6 +230,8 @@
     
     
     <category term="基础" scheme="http://wangqiang431.gitee.io/blog/tags/%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="题目" scheme="http://wangqiang431.gitee.io/blog/tags/%E9%A2%98%E7%9B%AE/"/>
     
   </entry>
   
@@ -274,18 +362,18 @@
   </entry>
   
   <entry>
-    <title>vue面试题</title>
+    <title>vue知识点</title>
     <link href="http://wangqiang431.gitee.io/blog/2021/031848462.html"/>
     <id>http://wangqiang431.gitee.io/blog/2021/031848462.html</id>
     <published>2021-03-18T07:21:22.000Z</published>
-    <updated>2021-03-28T08:35:48.724Z</updated>
+    <updated>2021-03-29T04:49:46.760Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Vue面试题&quot;&gt;&lt;a href=&quot;#Vue面试题&quot; class=&quot;headerlink&quot; title=&quot;Vue面试题&quot;&gt;&lt;/a&gt;Vue面试题&lt;/h1&gt;&lt;h3 id=&quot;1-keep-alive的作用及原理&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h1 id=&quot;Vue知识点&quot;&gt;&lt;a href=&quot;#Vue知识点&quot; class=&quot;headerlink&quot; title=&quot;Vue知识点&quot;&gt;&lt;/a&gt;Vue知识点&lt;/h1&gt;&lt;h3 id=&quot;1-keep-alive的作用及原理&quot;&gt;&lt;a</summary>
         
       
     
@@ -296,23 +384,23 @@
     
     <category term="框架" scheme="http://wangqiang431.gitee.io/blog/tags/%E6%A1%86%E6%9E%B6/"/>
     
-    <category term="面试" scheme="http://wangqiang431.gitee.io/blog/tags/%E9%9D%A2%E8%AF%95/"/>
+    <category term="知识点" scheme="http://wangqiang431.gitee.io/blog/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
     
   </entry>
   
   <entry>
-    <title>javascript面试题</title>
+    <title>javascript知识点</title>
     <link href="http://wangqiang431.gitee.io/blog/2021/03183927.html"/>
     <id>http://wangqiang431.gitee.io/blog/2021/03183927.html</id>
     <published>2021-03-18T03:11:49.000Z</published>
-    <updated>2021-03-28T08:26:05.942Z</updated>
+    <updated>2021-03-29T05:02:24.844Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Javascript面试题&quot;&gt;&lt;a href=&quot;#Javascript面试题&quot; class=&quot;headerlink&quot; title=&quot;Javascript面试题&quot;&gt;&lt;/a&gt;Javascript面试题&lt;/h1&gt;&lt;h3 id=&quot;1-闭包原理&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h1 id=&quot;Javascript知识点&quot;&gt;&lt;a href=&quot;#Javascript知识点&quot; class=&quot;headerlink&quot; title=&quot;Javascript知识点&quot;&gt;&lt;/a&gt;Javascript知识点&lt;/h1&gt;&lt;h3 id=&quot;1-闭包原理&quot;&gt;&lt;a</summary>
         
       
     
@@ -323,7 +411,7 @@
     
     <category term="基础" scheme="http://wangqiang431.gitee.io/blog/tags/%E5%9F%BA%E7%A1%80/"/>
     
-    <category term="面试" scheme="http://wangqiang431.gitee.io/blog/tags/%E9%9D%A2%E8%AF%95/"/>
+    <category term="知识点" scheme="http://wangqiang431.gitee.io/blog/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
     
   </entry>
   
