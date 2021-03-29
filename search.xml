@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>git相关问题</title>
+      <link href="/blog/2021/032960288.html"/>
+      <url>/blog/2021/032960288.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="git相关问题"><a href="#git相关问题" class="headerlink" title="git相关问题"></a>git相关问题</h1><h3 id="github-com-443"><a href="#github-com-443" class="headerlink" title="github.com:443"></a>github.com:443</h3><pre class="line-numbers language-none"><code class="language-none">fatal: unable to access &#39;xxx&#39;: LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>如果使用了代理，执行以下命令</p><pre class="line-numbers language-none"><code class="language-none">git config --global --add remote.origin.proxy &quot;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 问题总结 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>事件循环</title>
+      <link href="/blog/2021/032913214.html"/>
+      <url>/blog/2021/032913214.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h1><h3 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h3><p>首先得了解javascript是单线程的，那么单线程遇到request请求肯定会阻塞任务，那js是怎么处理的呢？</p><p>这就得了解js的一些异步函数。如Promise MutationObserver, setImmediate, setTimeout。</p><p>了解Vue的同学，应该知道$nextTick就是通过上述异步函数实现的。</p><p>那么异步函数为什么不会阻塞呢，这就是下面要讲到的js事件循环机制。</p><p>我们先记住两个概念：宏任务和微任务</p><p>以下事件属于宏任务：</p><ul><li>setInterval()</li><li>setTimeout()</li></ul><p>以下事件属于微任务</p><ul><li> new Promise()</li><li> new MutaionObserver()</li></ul><p>然后看下面的例子1</p><h3 id="例子1"><a href="#例子1" class="headerlink" title="例子1"></a>例子1</h3><pre class="line-numbers language-none"><code class="language-none">console.log(3)setTimeout(() &#x3D;&gt; &#123; &#x2F;&#x2F; 第一个  console.log(1)&#125;)new Promise((resolve) &#x3D;&gt; &#123;  console.log(4)  resolve()  setTimeout(() &#x3D;&gt; &#123; &#x2F;&#x2F; 第二个     console.log(2)     setTimeout(() &#x3D;&gt; &#123; &#x2F;&#x2F; 第三个     console.log(8)  &#125;)  &#125;)&#125;).then(() &#x3D;&gt; &#123;  console.log(6)  setTimeout(() &#x3D;&gt; &#123; &#x2F;&#x2F; 第四个     console.log(7)  &#125;)&#125;)console.log(5)  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>执行结果为： 3 4 5 6 1 2 7 8。</p><p>看到执行结果，就得问问是为什么呢？先说一个结论，微任务优先宏任务执行。</p><ul><li>众所周知，js是按顺序执行的。第一个3没有问题，碰到setTimeout和Promise.then会挂起放到异步队列中，等有了返回结果再拿出来执行。 那么接着打印4和5。</li><li>接着就是异步队列中存放的setTimeou和Promise.then了，Promise.then属于微任务，优先宏任务执行，接着打印6。</li><li>剩下的就是setTimeout了，他们的执行顺序和放入异步队列的顺序相关（因为都没有等待时间）。1和2很好理解，7和8呢？还是因为微任务Promise.then比第二个setTimeout先执行，所以第四个setTimeout比第三个setTimeout先执行，即先有返回结果。</li></ul><h3 id="深入理解"><a href="#深入理解" class="headerlink" title="深入理解"></a>深入理解</h3><blockquote><ol><li>执行栈与事件队列<br>当javascript代码执行的时候会将不同的变量存于内存中的不同位置：堆（heap）和栈（stack）中来加以区分。其中，堆里存放着一些对象。而栈中则存放着一些基础类型变量以及对象的指针。 但是我们这里说的执行栈和上面这个栈的意义却有些不同。<br>我们知道，当我们调用一个方法的时候，js会生成一个与这个方法对应的执行环境（context），又叫执行上下文。这个执行环境中存在着这个方法的私有作用域，上层作用域的指向，方法的参数，这个作用域中定义的变量以及这个作用域的this对象。 而当一系列方法被依次调用的时候，因为js是单线程的，同一时间只能执行一个方法，于是这些方法被排队在一个单独的地方。这个地方被称为执行栈。<br>当一个脚本第一次执行的时候，js引擎会解析这段代码，并将其中的同步代码按照执行顺序加入执行栈中，然后从头开始执行。如果当前执行的是一个方法，那么js会向执行栈中添加这个方法的执行环境，然后进入这个执行环境继续执行其中的代码。当这个执行环境中的代码 执行完毕并返回结果后，js会退出这个执行环境并把这个执行环境销毁，回到上一个方法的执行环境。这个过程反复进行，直到执行栈中的代码全部执行完毕。<br>一个方法执行会向执行栈中加入这个方法的执行环境，在这个执行环境中还可以调用其他方法，甚至是自己，其结果不过是在执行栈中再添加一个执行环境。这个过程可以是无限进行下去的，除非发生了栈溢出，即超过了所能使用内存的最大值。<br>以上的过程说的都是同步代码的执行。那么当一个异步代码（如发送ajax请求数据）执行后会如何呢？前文提过，js的另一大特点是非阻塞，实现这一点的关键在于下面要说的这项机制——事件队列（Task Queue）。<br>js引擎遇到一个异步事件后并不会一直等待其返回结果，而是会将这个事件挂起，继续执行“执行栈”中的其他任务。<strong>当一个异步事件返回结果后</strong>，js会将这个事件加入与当前执行栈不同的另一个队列，我们称之为事件队列。<strong>被放入事件队列不会立刻执行其回调</strong>，而是等待当前执行栈中的所有任务都执行完毕， 主线程处于闲置状态时，主线程会去查找事件队列是否有任务。如果有，那么主线程会从中取出排在第一位的事件，并把这个事件对应的回调放入执行栈中，然后执行其中的同步代码…，如此反复，这样就形成了一个无限的循环。这就是这个过程被称为“事件循环（Event Loop）”的原因。</li></ol></blockquote><h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><pre class="line-numbers language-none"><code class="language-none">console.log(1)setTimeout(() &#x3D;&gt; &#123;  console.log(6)&#125;)new Promise(resolve &#x3D;&gt; &#123;  console.log(2)  setTimeout(() &#x3D;&gt; &#123;    console.log(3)    resolve()             &#x2F;&#x2F; resolve放在这里时，执行顺序为 1 2 5 6 3 4  &#125;)  &#x2F;&#x2F; resolve()           &#x2F;&#x2F; resolve放在这里时，执行顺序为 1 2 5 4 6 3&#125;).then(() &#x3D;&gt; &#123;  console.log(4)&#125;)console.log(5)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol><li>js引擎遇到异步事件会将其挂起，继续执行“执行栈”中的同步代码；</li><li>当异步事件有返回结果后，才会加入到事件队列（与当前执行栈不同的另一个队列）中；</li><li>当主线程为闲置状态时，才会查找事件队列是否有任务；如果有，取第一个加入执行栈中执行其中同步代码，如此循环；</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Javascript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 深入 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>uni-app</title>
       <link href="/blog/2021/032854796.html"/>
       <url>/blog/2021/032854796.html</url>
@@ -40,6 +90,31 @@
       <url>/blog/2021/03287415.html</url>
       
         <content type="html"><![CDATA[<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><h3 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h3><p>变量作用域两种：全局变量、局部变量。</p><ul><li>全局变量：函数外声明的变量，称为全局变量</li><li> 局部变量：函数内部使用var声明的变量，称为局部变量</li></ul><p>在JS中（ES5），只有函数作用域，没有块级作用域！！！也就是说，if/for等有{}的结构体，并不能具备自己的作用域。（ES6提供了块级作用域，let、const）</p><p>所以，函数外部不能访问函数内部局部变量（私有属性）。因为，函数内部的变量，在函数执行完毕以后，就会被释放掉。（涉及js垃圾回收机制）</p><h3 id="如何从外部读取函数内部的变量？"><a href="#如何从外部读取函数内部的变量？" class="headerlink" title="如何从外部读取函数内部的变量？"></a>如何从外部读取函数内部的变量？</h3><pre class="line-numbers language-none"><code class="language-none">function func1()&#123;var a &#x3D; 12function func2()&#123;    &#x2F;&#x2F; func2是一个闭包alert(a)&#125;return func2&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>js链式作用域：子对象会一级一级向上寻找所有父对象的变量，反之不行。</li><li>func2可以读取func1内的变量，只要将func2作为返回值，就可以在func1外部读取func1内部变量</li></ul><h3 id="闭包的概念"><a href="#闭包的概念" class="headerlink" title="闭包的概念"></a>闭包的概念</h3><p>  能够读取其他函数内部变量的函数；<br>  或简单理解为定义在一个函数内部的函数，内部函数持有外部函数内变量的引用。</p><h3 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途"></a>闭包的用途</h3><ul><li><p>读取函数内部的变量</p></li><li><p>让这些变量的值始终保持在内存中。不会在func1调用后被自动清除。<br>func1是func2的父函数，func2被赋给了一个全局变量。因此，func2始终存在内存中，func2的存在依赖func1，因此func1也始终存在内存中，不会在调用结束后，被垃圾回收机制回收。</p><blockquote><p>垃圾回收机制：（js内存管理的主要概念-可达性）<br>1、可达性即那些以某种方式可访问或可用的值，它们被保证存储在内存中。<br>2、一般来说没有被引用的对象就是垃圾，就是要被清除。 有个例外如果几个对象引用形成一个环，互相引用，但“根”访问不到它们，这几个对象也是垃圾，也要被清除。即可达性，</p></blockquote></li><li><p>方便调用上下文的局部变量。利于代码封装。</p></li></ul><h3 id="闭包的理解"><a href="#闭包的理解" class="headerlink" title="闭包的理解"></a>闭包的理解</h3><pre class="line-numbers language-none"><code class="language-none">function init() &#123;var name &#x3D; &quot;Chrome&quot;;    &#x2F;&#x2F;创建局部变量name和局部函数alertNamefunction alertName() &#123; &#x2F;&#x2F;alertName()是函数内部方法，是一个闭包alert(name); &#x2F;&#x2F;使用了外部函数声明的变量，内部函数可以访问外部函数的变量&#125;alertName();&#125;init();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>词法作用域中使用的域，是变量在代码中声明的位置所决定的（全局，函数，块级）。嵌套的函数可以访问在其外部声明的变量。</li></ul><pre class="line-numbers language-none"><code class="language-none">function outFun()&#123;var name &#x3D; &quot;Chrome&quot;;function alertName()&#123;alert(name);&#125;return alertName;   &#x2F;&#x2F;alertName被外部函数作为返回值返回了,返回的是一个闭包&#125;var myFun &#x3D; outFun();myFun();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>闭包有函数+它的词法环境；词法环境指函数创建时可访问的所有变量。</li><li>myFun引用了一个闭包，闭包由alertName()和闭包创建时存在的“Chrome”字符串组成。alertName()持有了name的引用，myFun持有了alertName()的访问，因此myFun调用时，name还是处于可以访问的状态。</li></ul><pre class="line-numbers language-none"><code class="language-none">function makeAdder(x)&#123;return function(y)&#123;return x + y;&#125;;&#125;var add5&#x3D; makeAdder(5);var add10&#x3D; makeAdder(10);console.log(add5(2)); &#x2F;&#x2F; 7console.log(add10(2));  &#x2F;&#x2F; 12<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>在这个示例中，我们定义了 makeAdder(x) 函数，它接受一个参数 x ，并返回一个新的函数。返回的函数接受一个参数 y，并返回x+y的值。</li><li>从本质上讲，makeAdder 是一个函数工厂 — 他创建了将指定的值和它的参数相加求和的函数。在上面的示例中，我们使用函数工厂创建了两个新函数 — 一个将其参数和 5 求和，另一个和 10 求和。</li><li>add5和add10都是闭包。它们共享相同的函数定义，但是保存了不同的词法环境。在 add5 的环境中，x 为 5。而在 add10 中，x 则为 10。</li></ul><h3 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h3><p><a href="%5Bhttps://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures%5D(https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures)">MDN</a><br><a href="https://segmentfault.com/a/1190000018605776">前端面试：谈谈 JS 垃圾回收机制</a><br><a href="https://segmentfault.com/a/1190000010640225">ES6 变量作用域与提升：变量的生命周期详解</a><br><a href="https://www.jianshu.com/p/2fb8a9f26589">关于JavaScript中的闭包及应用场景</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Javascript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>每隔一秒打印一次hello world</title>
+      <link href="/blog/2021/03287415.html"/>
+      <url>/blog/2021/03287415.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="实现每隔一秒打印一次hello-world"><a href="#实现每隔一秒打印一次hello-world" class="headerlink" title="实现每隔一秒打印一次hello world"></a>实现每隔一秒打印一次hello world</h1><h3 id="ES6写法"><a href="#ES6写法" class="headerlink" title="ES6写法"></a>ES6写法</h3><pre class="line-numbers language-none"><code class="language-none">let func &#x3D; (arg0) &#x3D;&gt; &#123;  for(let i &#x3D; 0; i &lt; 5; i++) &#123;    setTimeout(() &#x3D;&gt; console.log(arg0), 1000 * i, arg0)  &#125;&#125;func(&quot;hello world&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="ES5写法"><a href="#ES5写法" class="headerlink" title="ES5写法"></a>ES5写法</h3><pre class="line-numbers language-none"><code class="language-none">function func(arg0) &#123;  for(var i &#x3D; 0; i &lt; 5; i++) &#123;    (function (i) &#123;      setTimeout(function() &#123;        console.log(arg0)      &#125;, 1000*i, arg0)    &#125;)(i)  &#125;&#125;func(&quot;hello world&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>当setTimeout执行的时候，i 的值才能确定，这时循环模块已经运行完成，i 值为5。<br>使用立即执行函数，立即绑定，用每次的值绑定到事件上，而不是循环结束的值。</p><h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><pre class="line-numbers language-none"><code class="language-none">function test(timing)&#123;  return function(arg0) &#123;    &#x2F;&#x2F; 闭包    setTimeout(function() &#123;  &#x2F;&#x2F; 引用了外部变量timing，使timing一直存在内存中，直到setTimeout执行完毕。      console.log(arg0)    &#125;, 1000 * timing, arg0)   &#125;&#125;function func(arg0) &#123;  for(var i &#x3D; 0; i &lt; 5; i++)&#123;    test(i)(arg0)  &#125;&#125;func(&quot;hello world&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>这里使用到了闭包的概念，为每一个回调都创建一个新的词法环境。</p><p>容易犯错的地方：</p><ul><li>setTimeout方法第一个参数不能传参数</li><li>i 值的变化</li></ul>]]></content>
       
       
       <categories>

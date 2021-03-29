@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="闭包, Johnson">
+    <meta name="keywords" content="每隔一秒打印一次hello world, Johnson">
     <meta name="description" content="莫道浮云终蔽日，严冬过尽春蓓蕾">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>闭包 | Johnson</title>
+    <title>每隔一秒打印一次hello world | Johnson</title>
     <link rel="icon" type="image/png" href="/blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">闭包</h1>
+                    <h1 class="description center-align post-title">每隔一秒打印一次hello world</h1>
                 </div>
             </div>
         </div>
@@ -471,14 +471,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    275
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    1 分
                 </div>
                 
 
@@ -496,79 +496,46 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><h3 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h3><p>变量作用域两种：全局变量、局部变量。</p>
-<ul>
-<li>全局变量：函数外声明的变量，称为全局变量</li>
-<li> 局部变量：函数内部使用var声明的变量，称为局部变量</li>
-</ul>
-<p>在JS中（ES5），只有函数作用域，没有块级作用域！！！也就是说，if/for等有{}的结构体，并不能具备自己的作用域。（ES6提供了块级作用域，let、const）</p>
-<p>所以，函数外部不能访问函数内部局部变量（私有属性）。因为，函数内部的变量，在函数执行完毕以后，就会被释放掉。（涉及js垃圾回收机制）</p>
-<h3 id="如何从外部读取函数内部的变量？"><a href="#如何从外部读取函数内部的变量？" class="headerlink" title="如何从外部读取函数内部的变量？"></a>如何从外部读取函数内部的变量？</h3><pre class="line-numbers language-none"><code class="language-none">function func1()&#123;
-	var a &#x3D; 12
-	function func2()&#123;    &#x2F;&#x2F; func2是一个闭包
-		alert(a)
-	&#125;
-	return func2
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>js链式作用域：子对象会一级一级向上寻找所有父对象的变量，反之不行。</li>
-<li>func2可以读取func1内的变量，只要将func2作为返回值，就可以在func1外部读取func1内部变量</li>
-</ul>
-<h3 id="闭包的概念"><a href="#闭包的概念" class="headerlink" title="闭包的概念"></a>闭包的概念</h3><p>  能够读取其他函数内部变量的函数；<br>  或简单理解为定义在一个函数内部的函数，内部函数持有外部函数内变量的引用。</p>
-<h3 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途"></a>闭包的用途</h3><ul>
-<li><p>读取函数内部的变量</p>
-</li>
-<li><p>让这些变量的值始终保持在内存中。不会在func1调用后被自动清除。<br>func1是func2的父函数，func2被赋给了一个全局变量。因此，func2始终存在内存中，func2的存在依赖func1，因此func1也始终存在内存中，不会在调用结束后，被垃圾回收机制回收。</p>
-<blockquote>
-<p>垃圾回收机制：（js内存管理的主要概念-可达性）<br>1、可达性即那些以某种方式可访问或可用的值，它们被保证存储在内存中。<br>2、一般来说没有被引用的对象就是垃圾，就是要被清除。 有个例外如果几个对象引用形成一个环，互相引用，但“根”访问不到它们，这几个对象也是垃圾，也要被清除。即可达性，</p>
-</blockquote>
-</li>
-<li><p>方便调用上下文的局部变量。利于代码封装。</p>
-</li>
-</ul>
-<h3 id="闭包的理解"><a href="#闭包的理解" class="headerlink" title="闭包的理解"></a>闭包的理解</h3><pre class="line-numbers language-none"><code class="language-none">function init() &#123;
-	var name &#x3D; &quot;Chrome&quot;;    &#x2F;&#x2F;创建局部变量name和局部函数alertName
-
-	function alertName() &#123; &#x2F;&#x2F;alertName()是函数内部方法，是一个闭包
-			alert(name); &#x2F;&#x2F;使用了外部函数声明的变量，内部函数可以访问外部函数的变量
-	&#125;
-	alertName();
-&#125;
-init();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>词法作用域中使用的域，是变量在代码中声明的位置所决定的（全局，函数，块级）。嵌套的函数可以访问在其外部声明的变量。</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">function outFun()&#123;
-		var name &#x3D; &quot;Chrome&quot;;
-		function alertName()&#123;
-				alert(name);
-		&#125;
-		return alertName;   &#x2F;&#x2F;alertName被外部函数作为返回值返回了,返回的是一个闭包
+                <h1 id="实现每隔一秒打印一次hello-world"><a href="#实现每隔一秒打印一次hello-world" class="headerlink" title="实现每隔一秒打印一次hello world"></a>实现每隔一秒打印一次hello world</h1><h3 id="ES6写法"><a href="#ES6写法" class="headerlink" title="ES6写法"></a>ES6写法</h3><pre class="line-numbers language-none"><code class="language-none">let func &#x3D; (arg0) &#x3D;&gt; &#123;
+  for(let i &#x3D; 0; i &lt; 5; i++) &#123;
+    setTimeout(() &#x3D;&gt; console.log(arg0), 1000 * i, arg0)
+  &#125;
 &#125;
 
-var myFun &#x3D; outFun();
-myFun();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>闭包有函数+它的词法环境；词法环境指函数创建时可访问的所有变量。</li>
-<li>myFun引用了一个闭包，闭包由alertName()和闭包创建时存在的“Chrome”字符串组成。alertName()持有了name的引用，myFun持有了alertName()的访问，因此myFun调用时，name还是处于可以访问的状态。</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">function makeAdder(x)&#123;
-		return function(y)&#123;
-				return x + y;
-		&#125;;
+func(&quot;hello world&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="ES5写法"><a href="#ES5写法" class="headerlink" title="ES5写法"></a>ES5写法</h3><pre class="line-numbers language-none"><code class="language-none">function func(arg0) &#123;
+  for(var i &#x3D; 0; i &lt; 5; i++) &#123;
+    (function (i) &#123;
+      setTimeout(function() &#123;
+        console.log(arg0)
+      &#125;, 1000*i, arg0)
+    &#125;)(i)
+  &#125;
 &#125;
 
-var add5&#x3D; makeAdder(5);
-var add10&#x3D; makeAdder(10);
+func(&quot;hello world&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>当setTimeout执行的时候，i 的值才能确定，这时循环模块已经运行完成，i 值为5。<br>使用立即执行函数，立即绑定，用每次的值绑定到事件上，而不是循环结束的值。</p>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><pre class="line-numbers language-none"><code class="language-none">function test(timing)&#123;
+  return function(arg0) &#123;    &#x2F;&#x2F; 闭包
+    setTimeout(function() &#123;  &#x2F;&#x2F; 引用了外部变量timing，使timing一直存在内存中，直到setTimeout执行完毕。
+      console.log(arg0)
+    &#125;, 1000 * timing, arg0) 
+  &#125;
+&#125;
 
-console.log(add5(2)); &#x2F;&#x2F; 7
-console.log(add10(2));  &#x2F;&#x2F; 12<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+function func(arg0) &#123;
+  for(var i &#x3D; 0; i &lt; 5; i++)&#123;
+    test(i)(arg0)
+  &#125;
+&#125;
+
+func(&quot;hello world&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这里使用到了闭包的概念，为每一个回调都创建一个新的词法环境。</p>
+<p>容易犯错的地方：</p>
 <ul>
-<li>在这个示例中，我们定义了 makeAdder(x) 函数，它接受一个参数 x ，并返回一个新的函数。返回的函数接受一个参数 y，并返回x+y的值。</li>
-<li>从本质上讲，makeAdder 是一个函数工厂 — 他创建了将指定的值和它的参数相加求和的函数。在上面的示例中，我们使用函数工厂创建了两个新函数 — 一个将其参数和 5 求和，另一个和 10 求和。</li>
-<li>add5和add10都是闭包。它们共享相同的函数定义，但是保存了不同的词法环境。在 add5 的环境中，x 为 5。而在 add10 中，x 则为 10。</li>
+<li>setTimeout方法第一个参数不能传参数</li>
+<li>i 值的变化</li>
 </ul>
-<h3 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h3><p><a href="%5Bhttps://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures%5D(https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures)">MDN</a><br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000018605776">前端面试：谈谈 JS 垃圾回收机制</a><br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000010640225">ES6 变量作用域与提升：变量的生命周期详解</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/2fb8a9f26589">关于JavaScript中的闭包及应用场景</a></p>
 
                 
             </div>
@@ -810,19 +777,19 @@ console.log(add10(2));  &#x2F;&#x2F; 12<span aria-hidden="true" class="line-numb
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blog/2021/032854796.html">
+                <a href="/blog/2021/03287415.html">
                     <div class="card-image">
                         
                         
-                        <img src="/blog/medias/featureimages/20.jpg" class="responsive-img" alt="uni-app">
+                        <img src="/blog/medias/featureimages/0.jpg" class="responsive-img" alt="闭包">
                         
-                        <span class="card-title">uni-app</span>
+                        <span class="card-title">闭包</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            是一个使用 Vue.js 开发所有前端应用的框架
+                            js很重要的一个概念
                         
                     </div>
                     <div class="publish-info">
@@ -833,8 +800,8 @@ console.log(add10(2));  &#x2F;&#x2F; 12<span aria-hidden="true" class="line-numb
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/blog/categories/Vue/" class="post-category">
-                                    Vue
+                            <a href="/blog/categories/Javascript/" class="post-category">
+                                    Javascript
                                 </a>
                             
                             
@@ -844,20 +811,8 @@ console.log(add10(2));  &#x2F;&#x2F; 12<span aria-hidden="true" class="line-numb
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blog/tags/APP/">
-                        <span class="chip bg-color">APP</span>
-                    </a>
-                    
-                    <a href="/blog/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/">
-                        <span class="chip bg-color">跨平台</span>
-                    </a>
-                    
-                    <a href="/blog/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                        <span class="chip bg-color">小程序</span>
-                    </a>
-                    
-                    <a href="/blog/tags/h5/">
-                        <span class="chip bg-color">h5</span>
+                    <a href="/blog/tags/%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">基础</span>
                     </a>
                     
                 </div>
@@ -1113,7 +1068,7 @@ console.log(add10(2));  &#x2F;&#x2F; 12<span aria-hidden="true" class="line-numb
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.9k</span>&nbsp;字
+                class="white-color">6.7k</span>&nbsp;字
             
             
             

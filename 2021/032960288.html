@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="vue面试题, Johnson">
+    <meta name="keywords" content="git相关问题, Johnson">
     <meta name="description" content="莫道浮云终蔽日，严冬过尽春蓓蕾">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>vue面试题 | Johnson</title>
+    <title>git相关问题 | Johnson</title>
     <link rel="icon" type="image/png" href="/blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vue面试题</h1>
+                    <h1 class="description center-align post-title">git相关问题</h1>
                 </div>
             </div>
         </div>
@@ -432,12 +432,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/blog/tags/%E6%A1%86%E6%9E%B6/">
-                                <span class="chip bg-color">框架</span>
-                            </a>
-                        
-                            <a href="/blog/tags/%E9%9D%A2%E8%AF%95/">
-                                <span class="chip bg-color">面试</span>
+                            <a href="/blog/tags/git/">
+                                <span class="chip bg-color">git</span>
                             </a>
                         
                     </div>
@@ -448,8 +444,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/blog/categories/Vue/" class="post-category">
-                                Vue
+                            <a href="/blog/categories/%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" class="post-category">
+                                问题总结
                             </a>
                         
                     </div>
@@ -461,21 +457,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-18
+                    2021-03-29
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-28
+                    2021-03-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    311
+                    44
                 </div>
                 
 
@@ -500,24 +496,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Vue面试题"><a href="#Vue面试题" class="headerlink" title="Vue面试题"></a>Vue面试题</h1><h3 id="1-keep-alive的作用及原理"><a href="#1-keep-alive的作用及原理" class="headerlink" title="1. keep-alive的作用及原理"></a>1. keep-alive的作用及原理</h3><h3 id="2-computed实现原理，及与watch的区别"><a href="#2-computed实现原理，及与watch的区别" class="headerlink" title="2. computed实现原理，及与watch的区别"></a>2. computed实现原理，及与watch的区别</h3><ul>
-<li>computed 每次都会重新计算吗？</li>
-<li>watch 有哪些属性对象？</li>
-</ul>
-<h3 id="3-vux"><a href="#3-vux" class="headerlink" title="3. vux"></a>3. vux</h3><h3 id="4-vue-router"><a href="#4-vue-router" class="headerlink" title="4. vue-router"></a>4. vue-router</h3><h3 id="5-双向绑定原理"><a href="#5-双向绑定原理" class="headerlink" title="5. 双向绑定原理"></a>5. 双向绑定原理</h3><h3 id="6-自定义组件，如何实现v-model"><a href="#6-自定义组件，如何实现v-model" class="headerlink" title="6. 自定义组件，如何实现v-model"></a>6. 自定义组件，如何实现<code>v-model</code></h3><p>   <code>v-model</code>实际上是<code>value</code>和<code>@input</code>二者共同实现的</p>
-<h3 id="7-混入的优缺点minix"><a href="#7-混入的优缺点minix" class="headerlink" title="7. 混入的优缺点minix"></a>7. 混入的优缺点minix</h3><h3 id="8-nextTick实现原理"><a href="#8-nextTick实现原理" class="headerlink" title="8. $nextTick实现原理"></a>8. $nextTick实现原理</h3><h3 id="9-vue3"><a href="#9-vue3" class="headerlink" title="9. vue3"></a>9. vue3</h3><h3 id="10-requestAnimationFrame"><a href="#10-requestAnimationFrame" class="headerlink" title="10. requestAnimationFrame"></a>10. requestAnimationFrame</h3><p>   <code>requestAnimationFrame</code> 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率</p>
-<p>   在隐藏或不可见的元素中，<code>requestAnimationFrame</code> 将不会进行重绘或回流，这当然就意味着更少的 CPU、GPU 和内存使用量</p>
-<p>   <code>requestAnimationFrame</code> 是由浏览器专门为动画提供的 API，在运行时浏览器会自动优化方法的调用，并且如果页面不是激活状态下的话，动画会自动暂停，有效节省了 CPU 开销</p>
-<h3 id="11-性能优化"><a href="#11-性能优化" class="headerlink" title="11. 性能优化"></a>11. 性能优化</h3><h3 id="12-何时创建虚拟dom，又何时进行依赖收集？"><a href="#12-何时创建虚拟dom，又何时进行依赖收集？" class="headerlink" title="12. 何时创建虚拟dom，又何时进行依赖收集？"></a>12. 何时创建虚拟dom，又何时进行依赖收集？</h3><ul>
-<li>防抖和节流， </li>
-<li>requestAnimationFrame,</li>
-</ul>
-<h3 id="13-虚拟dom的优缺点？"><a href="#13-虚拟dom的优缺点？" class="headerlink" title="13. 虚拟dom的优缺点？"></a>13. 虚拟dom的优缺点？</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// TODO: 自己实现虚拟dom，创建，渲染流程</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<ul>
-<li>虚拟dom采用AST抽象语法树实现的</li>
-</ul>
-
+                <h1 id="git相关问题"><a href="#git相关问题" class="headerlink" title="git相关问题"></a>git相关问题</h1><h3 id="github-com-443"><a href="#github-com-443" class="headerlink" title="github.com:443"></a>github.com:443</h3><pre class="line-numbers language-none"><code class="language-none">fatal: unable to access &#39;xxx&#39;: LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>如果使用了代理，执行以下命令</p>
+<pre class="line-numbers language-none"><code class="language-none">git config --global --add remote.origin.proxy &quot;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -543,7 +524,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://wangqiang431.gitee.io/blog/blog/2021/031848462.html">http://wangqiang431.gitee.io/blog/blog/2021/031848462.html</a>
+                    <a href="http://wangqiang431.gitee.io/blog/blog/2021/032960288.html">http://wangqiang431.gitee.io/blog/blog/2021/032960288.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -581,12 +562,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/blog/tags/%E6%A1%86%E6%9E%B6/">
-                                    <span class="chip bg-color">框架</span>
-                                </a>
-                            
-                                <a href="/blog/tags/%E9%9D%A2%E8%AF%95/">
-                                    <span class="chip bg-color">面试</span>
+                                <a href="/blog/tags/git/">
+                                    <span class="chip bg-color">git</span>
                                 </a>
                             
                         </div>
@@ -758,54 +735,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/blog/2021/031910385.html">
+                <a href="/blog/2021/032960288.html">
                     <div class="card-image">
                         
                         
-                        <img src="/blog/medias/featureimages/11.jpg" class="responsive-img" alt="vue源码(keep-alive)">
+                        <img src="/blog/medias/featureimages/7.jpg" class="responsive-img" alt="git相关问题">
                         
-                        <span class="card-title">vue源码(keep-alive)</span>
+                        <span class="card-title">git相关问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            源码解析
+                            记录一些常见问题
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/blog/categories/Vue/" class="post-category">
-                                    Vue
+                            <a href="/blog/categories/%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" class="post-category">
+                                    问题总结
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blog/tags/%E6%A1%86%E6%9E%B6/">
-                        <span class="chip bg-color">框架</span>
-                    </a>
-                    
-                    <a href="/blog/tags/%E6%B7%B1%E5%85%A5/">
-                        <span class="chip bg-color">深入</span>
-                    </a>
-                    
-                    <a href="/blog/tags/%E6%BA%90%E7%A0%81/">
-                        <span class="chip bg-color">源码</span>
+                    <a href="/blog/tags/git/">
+                        <span class="chip bg-color">git</span>
                     </a>
                     
                 </div>
@@ -819,24 +790,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blog/2021/03183927.html">
+                <a href="/blog/2021/032913214.html">
                     <div class="card-image">
                         
                         
-                        <img src="/blog/medias/featureimages/8.jpg" class="responsive-img" alt="javascript面试题">
+                        <img src="/blog/medias/featureimages/16.jpg" class="responsive-img" alt="事件循环">
                         
-                        <span class="card-title">javascript面试题</span>
+                        <span class="card-title">事件循环</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            面试题
+                            注意理解执行栈，宏任务，微任务
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-29
                             </span>
                         <span class="publish-author">
                             
@@ -853,12 +824,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blog/tags/%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">基础</span>
-                    </a>
-                    
-                    <a href="/blog/tags/%E9%9D%A2%E8%AF%95/">
-                        <span class="chip bg-color">面试</span>
+                    <a href="/blog/tags/%E6%B7%B1%E5%85%A5/">
+                        <span class="chip bg-color">深入</span>
                     </a>
                     
                 </div>
