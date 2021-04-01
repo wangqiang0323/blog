@@ -1,19 +1,19 @@
 ---
-title: javascript面试题
+title: javascript知识点
 top: false
 cover: false
 toc: true
 mathjax: true
 tags:
-  - 面试
+  - 知识点
   - 基础
 categories: Javascript
 abbrlink: 3927
 date: 2021-03-18 11:11:49
 password:
-summary: 面试题
+summary: 知识点
 ---
-# Javascript面试题
+# Javascript知识点
 
 ### 1. 闭包原理
 
@@ -155,4 +155,13 @@ summary: 面试题
 	另外数组浅拷贝还可使用Array.concat()和slice(0)。或者使用ES6扩展运算符`{...oldObj}`
 
 [参考指南](https://github.com/mqyqingfeng/Blog)
+
+### 13 箭头函数和function的区别
+
+- 作用域 this指向问题
+- 箭头函数没有arguments
+
+### 14 html之间通信
+
+`postMessage` 和 `onMessage`
 

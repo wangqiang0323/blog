@@ -10,6 +10,7 @@ password:
 summary: 考察点主要在作用域
 tags:
   - 基础 
+  - 题目
 categories: Javascript
 ---
 # 实现每隔一秒打印一次hello world
