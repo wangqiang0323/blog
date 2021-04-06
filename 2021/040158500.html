@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="强制缓存和协商缓存, Johnson">
+    <meta name="keywords" content="code-review, Johnson">
     <meta name="description" content="莫道浮云终蔽日，严冬过尽春蓓蕾">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>强制缓存和协商缓存 | Johnson</title>
+    <title>code-review | Johnson</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">强制缓存和协商缓存</h1>
+                    <h1 class="description center-align post-title">code-review</h1>
                 </div>
             </div>
         </div>
@@ -430,29 +430,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E5%9F%BA%E7%A1%80/">
-                                <span class="chip bg-color">基础</span>
-                            </a>
-                        
-                            <a href="/tags/http/">
-                                <span class="chip bg-color">http</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Javascript/" class="post-category">
-                                Javascript
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -461,21 +444,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-17
+                    2021-04-01
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-26
+                    2021-04-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    506
+                    2
                 </div>
                 
 
@@ -500,31 +483,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="强制缓存和协商缓存"><a href="#强制缓存和协商缓存" class="headerlink" title="强制缓存和协商缓存"></a>强制缓存和协商缓存</h1><p>首先，缓存规则是由服务器返回给客户端的，包含在响应header中。</p>
-<h2 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h2><p>对于强制缓存，有两个字段标识失效规则（Expires/Cache-Control）。</p>
-<h3 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h3><p>Cache-Control 是最重要的规则。常见的取值有private、public、no-cache、max-age，no-store，默认为private。</p>
-<ul>
-<li>private:             客户端可以缓存</li>
-<li>public:              客户端和代理服务器都可缓存（前端的同学，可以认为public和private是一样的）</li>
-<li>max-age=xxx:   缓存的内容将在 xxx 秒后失效</li>
-<li>no-cache:          需要使用对比缓存来验证缓存数据（后面介绍）</li>
-<li>no-store:           所有内容都不会缓存，强制缓存，对比缓存都不会触发（对于前端开发来说，缓存越多越好，so…基本上和它说886）</li>
-</ul>
-<p>强制缓存：即客户端现访问浏览器缓存，</p>
-<h2 id="对比缓存-协商缓存"><a href="#对比缓存-协商缓存" class="headerlink" title="对比缓存 / 协商缓存"></a>对比缓存 / 协商缓存</h2><p>对比缓存，顾名思义，需要进行比较判断是否可以使用缓存。<br>浏览器第一次请求数据时，服务器会将缓存标识与数据一起返回给客户端，客户端将二者备份至缓存数据库中。<br>再次请求数据时，客户端将备份的缓存标识发送给服务器，服务器根据缓存标识进行判断，判断成功后，返回304状态码，通知客户端比较成功，可以使用缓存数据。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li>对于强制缓存，服务器通知浏览器一个缓存时间，在缓存时间内，下次请求，直接用缓存，不在时间内，执行比较缓存策略。</li>
-<li>对于比较缓存，将缓存信息中的Etag和Last-Modified通过请求发送给服务器，由服务器校验，返回304状态码时，浏览器直接使用缓存。</li>
-</ul>
-<h2 id="思考：当发版时，如何解决浏览器缓存，保证用户看到新的页面？"><a href="#思考：当发版时，如何解决浏览器缓存，保证用户看到新的页面？" class="headerlink" title="思考：当发版时，如何解决浏览器缓存，保证用户看到新的页面？"></a>思考：当发版时，如何解决浏览器缓存，保证用户看到新的页面？</h2><ul>
-<li>hash</li>
-<li>时间戳</li>
-<li>版本号</li>
-</ul>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/chenqf/p/6386163.html">彻底弄懂HTTP缓存机制及原理</a></p>
-</blockquote>
-
+                <h1 id="code-review"><a href="#code-review" class="headerlink" title="code review"></a>code review</h1>
                 
             </div>
             <hr/>
@@ -550,7 +509,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.johnson0323.fun/2021/031756648.html">http://www.johnson0323.fun/2021/031756648.html</a>
+                    <a href="http://www.johnson0323.fun/2021/040158500.html">http://www.johnson0323.fun/2021/040158500.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -587,15 +546,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E5%9F%BA%E7%A1%80/">
-                                    <span class="chip bg-color">基础</span>
-                                </a>
-                            
-                                <a href="/tags/http/">
-                                    <span class="chip bg-color">http</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -769,48 +720,32 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03183927.html">
+                <a href="/2021/040214584.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="javascript知识点">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="vue3.0源码">
                         
-                        <span class="card-title">javascript知识点</span>
+                        <span class="card-title">vue3.0源码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            知识点
+                            
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-02
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Javascript/" class="post-category">
-                                    Javascript
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Johnson
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">基础</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/">
-                        <span class="chip bg-color">知识点</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -822,31 +757,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/031656855.html">
+                <a href="/2021/040111055.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="React与Vue比较">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="前端性能优化">
                         
-                        <span class="card-title">React与Vue比较</span>
+                        <span class="card-title">前端性能优化</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前端框架比较
+                            webpack，使用缓存等
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-01
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/React/" class="post-category">
-                                    React
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -856,8 +791,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%BF%9B%E9%98%B6/">
-                        <span class="chip bg-color">进阶</span>
+                    <a href="/tags/%E4%BC%98%E5%8C%96/">
+                        <span class="chip bg-color">优化</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B7%B1%E5%85%A5/">
+                        <span class="chip bg-color">深入</span>
                     </a>
                     
                 </div>
